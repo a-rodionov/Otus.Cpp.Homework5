@@ -1,0 +1,7 @@
+<map id="AddVectorGraphicCommand" name="AddVectorGraphicCommand">
+<area shape="rect" id="node3" href="$classAddVectorLineCommand.html" title="AddVectorLineCommand" alt="" coords="437,5,603,32"/>
+<area shape="rect" id="node4" href="$classAddVectorPointCommand.html" title="AddVectorPointCommand" alt="" coords="433,56,607,83"/>
+<area shape="rect" id="node5" href="$classAddVectorRectangleCommand.html" title="AddVectorRectangleCommand" alt="" coords="419,107,621,133"/>
+<area shape="rect" id="node6" href="$classAddVectorTextCommand.html" title="AddVectorTextCommand" alt="" coords="435,157,605,184"/>
+<area shape="rect" id="node2" href="$classGraphicCommand.html" title="GraphicCommand" alt="" coords="6,81,133,108"/>
+</map>

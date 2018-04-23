@@ -1,0 +1,9 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="node1" href="$classGraphicCommand.html" title="GraphicCommand" alt="" coords="6,107,133,133"/>
+<area shape="rect" id="node2" href="$classAddVectorGraphicCommand.html" title="AddVectorGraphicCommand" alt="" coords="187,81,375,108"/>
+<area shape="rect" id="node7" href="$classEraseVectorGraphicCommand.html" title="EraseVectorGraphicCommand" alt="" coords="182,132,381,159"/>
+<area shape="rect" id="node3" href="$classAddVectorLineCommand.html" title="AddVectorLineCommand" alt="" coords="447,5,614,32"/>
+<area shape="rect" id="node4" href="$classAddVectorPointCommand.html" title="AddVectorPointCommand" alt="" coords="444,56,617,83"/>
+<area shape="rect" id="node5" href="$classAddVectorRectangleCommand.html" title="AddVectorRectangleCommand" alt="" coords="429,107,632,133"/>
+<area shape="rect" id="node6" href="$classAddVectorTextCommand.html" title="AddVectorTextCommand" alt="" coords="446,157,615,184"/>
+</map>
