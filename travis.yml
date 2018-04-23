@@ -1,0 +1,23 @@
+language: cpp
+compiler: gcc
+before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -qq
+  - sudo apt-get install gcc-7 g++-7 -y
+  - sudo apt-get install graphviz
+  - sudo apt-get install doxygen
+install:
+  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 999 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+  - sudo update-alternatives --auto gcc
+script:
+  - cmake .
+  - cmake --build .
+  - doxygen
+deploy:
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    keep-history: true
+    local-dir: doc/html
+    on:
+      branch: master
