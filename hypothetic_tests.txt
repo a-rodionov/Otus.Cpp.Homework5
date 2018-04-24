@@ -1,0 +1,53 @@
+bool test_1()
+{
+  DocumentWorkspace workspace;
+  bool result;
+
+  workspace.OpenDocument("filename");
+  document = GetDocument();
+  workspace.SaveDocument("filename");
+
+  workspace.ImportFromDB("db access settings");
+  document = GetDocument();
+  workspace.ExportToDB("db access settings");
+
+  return result;
+}
+
+bool test_2()
+{
+  return test_1;
+}
+
+bool test_3()
+{
+  DocumentWorkspace workspace;
+  bool result;
+
+  workspace.DispatchGUIMessage(GUI_MESSAGE::NEW_DOCUMENT);
+  workspace.DispatchGUIMessage(GUI_MESSAGE::NEW_GRAPHIC_OPERATION);
+  workspace.DispatchGUIMessage(GUI_MESSAGE::CLICK_ON_DOCUMENT);
+
+  return result;
+}
+
+bool test_4()
+{
+  DocumentWorkspace workspace;
+  bool result;
+
+  workspace.DispatchGUIMessage(GUI_MESSAGE::NEW_DOCUMENT);
+
+  workspace.DispatchGUIMessage(GUI_MESSAGE::PICK_LINE_INSTRUMENT);
+  workspace.DispatchGUIMessage(GUI_MESSAGE::CLICK_ON_DOCUMENT);
+
+  workspace.DispatchGUIMessage(GUI_MESSAGE::PICK_TEXT_INSTRUMENT);
+  workspace.DispatchGUIMessage(GUI_MESSAGE::CLICK_ON_DOCUMENT);
+
+  workspace.DispatchGUIMessage(GUI_MESSAGE::PICK_RECTANGLE_INSTRUMENT);
+  workspace.DispatchGUIMessage(GUI_MESSAGE::CLICK_ON_DOCUMENT);
+
+  workspace.DispatchGUIMessage(GUI_MESSAGE::REFRESH_VIEW);
+
+  return result;
+}
