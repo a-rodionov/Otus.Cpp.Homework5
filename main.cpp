@@ -24,17 +24,17 @@ int main(int argc, char const *argv[])
     Application::Instance().DispatchGUIMessage(GUI_MESSAGE::CLICK_ON_DOCUMENT);
     Application::Instance().DispatchGUIMessage(GUI_MESSAGE::REFRESH_VIEW);
 
-    Application::Instance().DispatchGUIMessage(GUI_MESSAGE::SAVE_DOCUMENT);
+    Application::Instance().DispatchGUIMessage(GUI_MESSAGE::SAVE_FILE);
 
     Application::Instance().DispatchGUIMessage(GUI_MESSAGE::CLOSE_DOCUMENT);
 
-    Application::Instance().DispatchGUIMessage(GUI_MESSAGE::OPEN_DOCUMENT);
+    Application::Instance().DispatchGUIMessage(GUI_MESSAGE::OPEN_FILE);
 
     Application::Instance().DispatchGUIMessage(GUI_MESSAGE::PICK_ERASER_INSTRUMENT);
     Application::Instance().DispatchGUIMessage(GUI_MESSAGE::CLICK_ON_DOCUMENT);
     Application::Instance().DispatchGUIMessage(GUI_MESSAGE::REFRESH_VIEW);
 
-    Application::Instance().DispatchGUIMessage(GUI_MESSAGE::SAVE_DOCUMENT);
+    Application::Instance().DispatchGUIMessage(GUI_MESSAGE::SAVE_FILE);
 
     Application::Instance().DispatchGUIMessage(GUI_MESSAGE::CLOSE_DOCUMENT);
   }
