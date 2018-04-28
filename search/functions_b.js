@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['_7eapplicationstate',['~ApplicationState',['../classApplicationState.html#a13c2b6c7381b1c6c89cc71ae43f715ca',1,'ApplicationState']]],
-  ['_7egraphiccommand',['~GraphicCommand',['../classGraphicCommand.html#ac25ec0e84cc2f50c2117632d675b330d',1,'GraphicCommand']]],
-  ['_7evectorgraphic',['~VectorGraphic',['../classVectorGraphic.html#a0506a45a1b5690c45989854a7e74e2a4',1,'VectorGraphic']]]
+  ['writedocument',['WriteDocument',['../classDocument__IO.html#a6bfdd5a9bac64c6f1443baabcccea744',1,'Document_IO::WriteDocument()'],['../classDocument__IO__WMF.html#ac3fa0b5215ee806674d6186aa4c5ad5d',1,'Document_IO_WMF::WriteDocument()'],['../classDocument__IO__CDR.html#a1cc1716102de4c8bba09dd87d4cf843b',1,'Document_IO_CDR::WriteDocument()']]]
 ];

@@ -1,12 +1,12 @@
 <map id="Application.cpp" name="Application.cpp">
-<area shape="rect" id="node2" href="$Application_8h.html" title="Application.h" alt="" coords="5,229,101,256"/>
-<area shape="rect" id="node5" href="$EmptyWorkspace_8h.html" title="EmptyWorkspace.h" alt="" coords="51,80,188,107"/>
-<area shape="rect" id="node7" href="$DocumentWorkspace_8h.html" title="DocumentWorkspace.h" alt="" coords="213,80,371,107"/>
-<area shape="rect" id="node4" href="$gui__message_8h.html" title="gui_message.h" alt="" coords="39,304,149,331"/>
-<area shape="rect" id="node6" href="$ApplicationState_8h.html" title="ApplicationState.h" alt="" coords="55,155,183,181"/>
-<area shape="rect" id="node9" href="$Document_8h.html" title="Document.h" alt="" coords="283,229,376,256"/>
-<area shape="rect" id="node14" href="$GraphicCommand_8h.html" title="GraphicCommand.h" alt="" coords="412,304,551,331"/>
-<area shape="rect" id="node15" href="$Document__IO_8h.html" title="Document_IO.h" alt="" coords="329,155,444,181"/>
-<area shape="rect" id="node11" href="$VectorGraphic_8h.html" title="VectorGraphic.h" alt="" coords="271,304,387,331"/>
-<area shape="rect" id="node13" href="$Point_8h.html" title="Point.h" alt="" coords="341,379,403,405"/>
+<area shape="rect" id="node2" href="$Application_8h.html" title="Application.h" alt="" coords="25,304,121,331"/>
+<area shape="rect" id="node5" href="$EmptyWorkspace_8h.html" title="EmptyWorkspace.h" alt="" coords="229,155,365,181"/>
+<area shape="rect" id="node14" href="$DocumentWorkspace_8h.html" title="DocumentWorkspace.h" alt="" coords="333,80,491,107"/>
+<area shape="rect" id="node4" href="$gui__message_8h.html" title="gui_message.h" alt="" coords="22,379,132,405"/>
+<area shape="rect" id="node6" href="$ApplicationState_8h.html" title="ApplicationState.h" alt="" coords="105,229,233,256"/>
+<area shape="rect" id="node7" href="$Document__IO_8h.html" title="Document_IO.h" alt="" coords="257,229,372,256"/>
+<area shape="rect" id="node8" href="$Document_8h.html" title="Document.h" alt="" coords="268,304,361,331"/>
+<area shape="rect" id="node10" href="$VectorGraphic_8h.html" title="VectorGraphic.h" alt="" coords="254,379,369,405"/>
+<area shape="rect" id="node13" href="$GraphicCommand_8h.html" title="GraphicCommand.h" alt="" coords="395,379,533,405"/>
+<area shape="rect" id="node12" href="$Point_8h.html" title="Point.h" alt="" coords="323,453,385,480"/>
 </map>
