@@ -99,111 +99,112 @@ var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classAddVectorGraphicCommand.html#a6d6803b9d65ecfef9af9d157f38acbf5">   15</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorGraphicCommand.html#a6d6803b9d65ecfef9af9d157f38acbf5">AddVectorGraphicCommand</a>(<span class="keyword">const</span> std::shared_ptr&lt;Document&gt;&amp; document)</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classAddVectorGraphicCommand.html#a0ddc4e0f34341deda643c502a6056d79">   15</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorGraphicCommand.html#a0ddc4e0f34341deda643c502a6056d79">AddVectorGraphicCommand</a>(<span class="keyword">const</span> std::weak_ptr&lt;Document&gt;&amp; document)</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    : <a class="code" href="classGraphicCommand.html">GraphicCommand</a>{document} {}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classAddVectorGraphicCommand.html#aaf690749df2dd1bba45354ff96e1a861">   18</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAddVectorGraphicCommand.html#aaf690749df2dd1bba45354ff96e1a861">Execute</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classGraphicCommand.html#a21152966d960adc17c1d2730bc290f92">_document</a>-&gt;AddVectorGraphic(<a class="code" href="classAddVectorGraphicCommand.html#a6c44c4ca71d86fa9121aa4068e163c87">CreateVectorGraphic</a>(<a class="code" href="classGraphicCommand.html#a21152966d960adc17c1d2730bc290f92">_document</a>-&gt;GetCursorPosition()));</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">virtual</span> std::shared_ptr&lt;VectorGraphic&gt; <a class="code" href="classAddVectorGraphicCommand.html#a6c44c4ca71d86fa9121aa4068e163c87">CreateVectorGraphic</a>(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::shared_ptr&lt;Document&gt; document{<a class="code" href="classGraphicCommand.html#a40d1e3a7166887c7d13ceb3b7df0fd2d">_document</a>};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    document-&gt;AddVectorGraphic(<a class="code" href="classAddVectorGraphicCommand.html#af40750f76b9b2710b2445b23f59a0f24">CreateVectorGraphic</a>(document-&gt;GetCursorPosition()));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">virtual</span> std::unique_ptr&lt;VectorGraphic&gt; <a class="code" href="classAddVectorGraphicCommand.html#af40750f76b9b2710b2445b23f59a0f24">CreateVectorGraphic</a>(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classAddVectorPointCommand.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAddVectorPointCommand.html">AddVectorPointCommand</a> final : <span class="keyword">public</span> <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classAddVectorPointCommand.html#a6565e0fcb04fe4947af3fbe03becfc75">   36</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorPointCommand.html#a6565e0fcb04fe4947af3fbe03becfc75">AddVectorPointCommand</a>(<span class="keyword">const</span> std::shared_ptr&lt;Document&gt;&amp; document)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    : <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a>{document} {}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::shared_ptr&lt;VectorGraphic&gt; CreateVectorGraphic(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition)<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;VectorPoint&gt;(cursorPosition);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classAddVectorPointCommand.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAddVectorPointCommand.html">AddVectorPointCommand</a> final : <span class="keyword">public</span> <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classAddVectorPointCommand.html#acfdebd1014710f996e6a7e36169634e6">   37</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorPointCommand.html#acfdebd1014710f996e6a7e36169634e6">AddVectorPointCommand</a>(<span class="keyword">const</span> std::weak_ptr&lt;Document&gt;&amp; document)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    : <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a>{document} {}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  std::unique_ptr&lt;VectorGraphic&gt; CreateVectorGraphic(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition)<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> std::make_unique&lt;VectorPoint&gt;(cursorPosition);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classAddVectorTextCommand.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAddVectorTextCommand.html">AddVectorTextCommand</a> final : <span class="keyword">public</span> <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classAddVectorTextCommand.html#a29860ba91d6612ad022d2104c5206438">   55</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorTextCommand.html#a29860ba91d6612ad022d2104c5206438">AddVectorTextCommand</a>(<span class="keyword">const</span> std::shared_ptr&lt;Document&gt;&amp; document)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    : <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a>{document} {}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  std::shared_ptr&lt;VectorGraphic&gt; CreateVectorGraphic(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition)<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;VectorText&gt;(cursorPosition);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classAddVectorTextCommand.html">   51</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAddVectorTextCommand.html">AddVectorTextCommand</a> final : <span class="keyword">public</span> <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classAddVectorTextCommand.html#aea926cf824fd7b733f06cb5cec87dd75">   56</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorTextCommand.html#aea926cf824fd7b733f06cb5cec87dd75">AddVectorTextCommand</a>(<span class="keyword">const</span> std::weak_ptr&lt;Document&gt;&amp; document)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    : <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a>{document} {}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  std::unique_ptr&lt;VectorGraphic&gt; CreateVectorGraphic(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition)<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> std::make_unique&lt;VectorText&gt;(cursorPosition);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classAddVectorLineCommand.html">   69</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAddVectorLineCommand.html">AddVectorLineCommand</a> final : <span class="keyword">public</span> <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classAddVectorLineCommand.html#ac4e934f25c570e64002bc1a227ebfa16">   74</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorLineCommand.html#ac4e934f25c570e64002bc1a227ebfa16">AddVectorLineCommand</a>(<span class="keyword">const</span> std::shared_ptr&lt;Document&gt;&amp; document)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    : <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a>{document} {}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  std::shared_ptr&lt;VectorGraphic&gt; CreateVectorGraphic(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition)<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;VectorLine&gt;(cursorPosition, <a class="code" href="structPoint.html">Point</a>{cursorPosition.<a class="code" href="structPoint.html#ac90d44370a6a59c2bbc1971512ffea47">x</a> + DEFAULT_OFFSET, cursorPosition.y + DEFAULT_OFFSET});</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classAddVectorLineCommand.html">   70</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAddVectorLineCommand.html">AddVectorLineCommand</a> final : <span class="keyword">public</span> <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classAddVectorLineCommand.html#af675a3d60264f48d7453d84763918419">   75</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorLineCommand.html#af675a3d60264f48d7453d84763918419">AddVectorLineCommand</a>(<span class="keyword">const</span> std::weak_ptr&lt;Document&gt;&amp; document)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    : <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a>{document} {}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  std::unique_ptr&lt;VectorGraphic&gt; CreateVectorGraphic(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition)<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> std::make_unique&lt;VectorLine&gt;(cursorPosition, <a class="code" href="structPoint.html">Point</a>{cursorPosition.<a class="code" href="structPoint.html#ac90d44370a6a59c2bbc1971512ffea47">x</a> + DEFAULT_OFFSET, cursorPosition.y + DEFAULT_OFFSET});</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classAddVectorRectangleCommand.html">   88</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAddVectorRectangleCommand.html">AddVectorRectangleCommand</a> final : <span class="keyword">public</span> <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classAddVectorRectangleCommand.html#aa58466f3bb07eac5411db9756195fb09">   93</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorRectangleCommand.html#aa58466f3bb07eac5411db9756195fb09">AddVectorRectangleCommand</a>(<span class="keyword">const</span> std::shared_ptr&lt;Document&gt;&amp; document)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    : <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a>{document} {}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  std::shared_ptr&lt;VectorGraphic&gt; CreateVectorGraphic(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition)<span class="keyword"> const override </span>{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> std::make_shared&lt;VectorRectangle&gt;(cursorPosition, <a class="code" href="structPoint.html">Point</a>{cursorPosition.<a class="code" href="structPoint.html#ac90d44370a6a59c2bbc1971512ffea47">x</a> + DEFAULT_OFFSET, cursorPosition.y + DEFAULT_OFFSET});</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
-<div class="ttc" id="classAddVectorTextCommand_html"><div class="ttname"><a href="classAddVectorTextCommand.html">AddVectorTextCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:50</div></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classAddVectorRectangleCommand.html">   89</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAddVectorRectangleCommand.html">AddVectorRectangleCommand</a> final : <span class="keyword">public</span> <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classAddVectorRectangleCommand.html#a5134345f73f0558a4e921ea94ce8f5b3">   94</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classAddVectorRectangleCommand.html#a5134345f73f0558a4e921ea94ce8f5b3">AddVectorRectangleCommand</a>(<span class="keyword">const</span> std::weak_ptr&lt;Document&gt;&amp; document)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    : <a class="code" href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a>{document} {}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  std::unique_ptr&lt;VectorGraphic&gt; CreateVectorGraphic(<span class="keyword">const</span> <a class="code" href="structPoint.html">Point</a>&amp; cursorPosition)<span class="keyword"> const override </span>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> std::make_unique&lt;VectorRectangle&gt;(cursorPosition, <a class="code" href="structPoint.html">Point</a>{cursorPosition.<a class="code" href="structPoint.html#ac90d44370a6a59c2bbc1971512ffea47">x</a> + DEFAULT_OFFSET, cursorPosition.y + DEFAULT_OFFSET});</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
+<div class="ttc" id="classAddVectorGraphicCommand_html_a0ddc4e0f34341deda643c502a6056d79"><div class="ttname"><a href="classAddVectorGraphicCommand.html#a0ddc4e0f34341deda643c502a6056d79">AddVectorGraphicCommand::AddVectorGraphicCommand</a></div><div class="ttdeci">AddVectorGraphicCommand(const std::weak_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:15</div></div>
+<div class="ttc" id="classAddVectorTextCommand_html_aea926cf824fd7b733f06cb5cec87dd75"><div class="ttname"><a href="classAddVectorTextCommand.html#aea926cf824fd7b733f06cb5cec87dd75">AddVectorTextCommand::AddVectorTextCommand</a></div><div class="ttdeci">AddVectorTextCommand(const std::weak_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:56</div></div>
+<div class="ttc" id="classAddVectorTextCommand_html"><div class="ttname"><a href="classAddVectorTextCommand.html">AddVectorTextCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:51</div></div>
 <div class="ttc" id="classGraphicCommand_html"><div class="ttname"><a href="classGraphicCommand.html">GraphicCommand</a></div><div class="ttdef"><b>Definition:</b> GraphicCommand.h:5</div></div>
-<div class="ttc" id="classAddVectorGraphicCommand_html_a6c44c4ca71d86fa9121aa4068e163c87"><div class="ttname"><a href="classAddVectorGraphicCommand.html#a6c44c4ca71d86fa9121aa4068e163c87">AddVectorGraphicCommand::CreateVectorGraphic</a></div><div class="ttdeci">virtual std::shared_ptr&lt; VectorGraphic &gt; CreateVectorGraphic(const Point &amp;cursorPosition) const =0</div></div>
-<div class="ttc" id="classAddVectorPointCommand_html_a6565e0fcb04fe4947af3fbe03becfc75"><div class="ttname"><a href="classAddVectorPointCommand.html#a6565e0fcb04fe4947af3fbe03becfc75">AddVectorPointCommand::AddVectorPointCommand</a></div><div class="ttdeci">AddVectorPointCommand(const std::shared_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:36</div></div>
-<div class="ttc" id="classAddVectorTextCommand_html_a29860ba91d6612ad022d2104c5206438"><div class="ttname"><a href="classAddVectorTextCommand.html#a29860ba91d6612ad022d2104c5206438">AddVectorTextCommand::AddVectorTextCommand</a></div><div class="ttdeci">AddVectorTextCommand(const std::shared_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:55</div></div>
-<div class="ttc" id="classAddVectorLineCommand_html_ac4e934f25c570e64002bc1a227ebfa16"><div class="ttname"><a href="classAddVectorLineCommand.html#ac4e934f25c570e64002bc1a227ebfa16">AddVectorLineCommand::AddVectorLineCommand</a></div><div class="ttdeci">AddVectorLineCommand(const std::shared_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:74</div></div>
-<div class="ttc" id="classAddVectorPointCommand_html"><div class="ttname"><a href="classAddVectorPointCommand.html">AddVectorPointCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:31</div></div>
+<div class="ttc" id="classAddVectorRectangleCommand_html_a5134345f73f0558a4e921ea94ce8f5b3"><div class="ttname"><a href="classAddVectorRectangleCommand.html#a5134345f73f0558a4e921ea94ce8f5b3">AddVectorRectangleCommand::AddVectorRectangleCommand</a></div><div class="ttdeci">AddVectorRectangleCommand(const std::weak_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:94</div></div>
+<div class="ttc" id="classAddVectorPointCommand_html"><div class="ttname"><a href="classAddVectorPointCommand.html">AddVectorPointCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:32</div></div>
 <div class="ttc" id="classAddVectorGraphicCommand_html"><div class="ttname"><a href="classAddVectorGraphicCommand.html">AddVectorGraphicCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:10</div></div>
+<div class="ttc" id="classGraphicCommand_html_a40d1e3a7166887c7d13ceb3b7df0fd2d"><div class="ttname"><a href="classGraphicCommand.html#a40d1e3a7166887c7d13ceb3b7df0fd2d">GraphicCommand::_document</a></div><div class="ttdeci">std::weak_ptr&lt; Document &gt; _document</div><div class="ttdef"><b>Definition:</b> GraphicCommand.h:19</div></div>
 <div class="ttc" id="Document_8h_html"><div class="ttname"><a href="Document_8h.html">Document.h</a></div></div>
-<div class="ttc" id="classGraphicCommand_html_a21152966d960adc17c1d2730bc290f92"><div class="ttname"><a href="classGraphicCommand.html#a21152966d960adc17c1d2730bc290f92">GraphicCommand::_document</a></div><div class="ttdeci">std::shared_ptr&lt; Document &gt; _document</div><div class="ttdef"><b>Definition:</b> GraphicCommand.h:19</div></div>
-<div class="ttc" id="classAddVectorRectangleCommand_html"><div class="ttname"><a href="classAddVectorRectangleCommand.html">AddVectorRectangleCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:88</div></div>
-<div class="ttc" id="classAddVectorGraphicCommand_html_a6d6803b9d65ecfef9af9d157f38acbf5"><div class="ttname"><a href="classAddVectorGraphicCommand.html#a6d6803b9d65ecfef9af9d157f38acbf5">AddVectorGraphicCommand::AddVectorGraphicCommand</a></div><div class="ttdeci">AddVectorGraphicCommand(const std::shared_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:15</div></div>
+<div class="ttc" id="classAddVectorPointCommand_html_acfdebd1014710f996e6a7e36169634e6"><div class="ttname"><a href="classAddVectorPointCommand.html#acfdebd1014710f996e6a7e36169634e6">AddVectorPointCommand::AddVectorPointCommand</a></div><div class="ttdeci">AddVectorPointCommand(const std::weak_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:37</div></div>
+<div class="ttc" id="classAddVectorRectangleCommand_html"><div class="ttname"><a href="classAddVectorRectangleCommand.html">AddVectorRectangleCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:89</div></div>
+<div class="ttc" id="classAddVectorGraphicCommand_html_af40750f76b9b2710b2445b23f59a0f24"><div class="ttname"><a href="classAddVectorGraphicCommand.html#af40750f76b9b2710b2445b23f59a0f24">AddVectorGraphicCommand::CreateVectorGraphic</a></div><div class="ttdeci">virtual std::unique_ptr&lt; VectorGraphic &gt; CreateVectorGraphic(const Point &amp;cursorPosition) const =0</div></div>
 <div class="ttc" id="classAddVectorGraphicCommand_html_aaf690749df2dd1bba45354ff96e1a861"><div class="ttname"><a href="classAddVectorGraphicCommand.html#aaf690749df2dd1bba45354ff96e1a861">AddVectorGraphicCommand::Execute</a></div><div class="ttdeci">void Execute() override</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:18</div></div>
-<div class="ttc" id="classAddVectorLineCommand_html"><div class="ttname"><a href="classAddVectorLineCommand.html">AddVectorLineCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:69</div></div>
+<div class="ttc" id="classAddVectorLineCommand_html"><div class="ttname"><a href="classAddVectorLineCommand.html">AddVectorLineCommand</a></div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:70</div></div>
 <div class="ttc" id="structPoint_html_ac90d44370a6a59c2bbc1971512ffea47"><div class="ttname"><a href="structPoint.html#ac90d44370a6a59c2bbc1971512ffea47">Point::x</a></div><div class="ttdeci">std::size_t x</div><div class="ttdef"><b>Definition:</b> Point.h:5</div></div>
 <div class="ttc" id="structPoint_html"><div class="ttname"><a href="structPoint.html">Point</a></div><div class="ttdef"><b>Definition:</b> Point.h:3</div></div>
-<div class="ttc" id="classAddVectorRectangleCommand_html_aa58466f3bb07eac5411db9756195fb09"><div class="ttname"><a href="classAddVectorRectangleCommand.html#aa58466f3bb07eac5411db9756195fb09">AddVectorRectangleCommand::AddVectorRectangleCommand</a></div><div class="ttdeci">AddVectorRectangleCommand(const std::shared_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:93</div></div>
+<div class="ttc" id="classAddVectorLineCommand_html_af675a3d60264f48d7453d84763918419"><div class="ttname"><a href="classAddVectorLineCommand.html#af675a3d60264f48d7453d84763918419">AddVectorLineCommand::AddVectorLineCommand</a></div><div class="ttdeci">AddVectorLineCommand(const std::weak_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> AddVectorGraphicCommand.h:75</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

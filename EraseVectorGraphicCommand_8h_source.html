@@ -98,17 +98,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    : <a class="code" href="classGraphicCommand.html">GraphicCommand</a>{document} {}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classEraseVectorGraphicCommand.html#a60be2ced4fb09a587ad9e623885e3c6e">   13</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classEraseVectorGraphicCommand.html#a60be2ced4fb09a587ad9e623885e3c6e">Execute</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">auto</span> vectorGraphics = <a class="code" href="classGraphicCommand.html#a21152966d960adc17c1d2730bc290f92">_document</a>-&gt;GetVectorGraphicByPosition(<a class="code" href="classGraphicCommand.html#a21152966d960adc17c1d2730bc290f92">_document</a>-&gt;GetCursorPosition());</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; vectorGraphic : vectorGraphics)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <a class="code" href="classGraphicCommand.html#a21152966d960adc17c1d2730bc290f92">_document</a>-&gt;EraseVectorGraphic(vectorGraphic);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::shared_ptr&lt;Document&gt; document{<a class="code" href="classGraphicCommand.html#a40d1e3a7166887c7d13ceb3b7df0fd2d">_document</a>};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">auto</span> vectorGraphics = document-&gt;GetVectorGraphicByPosition(document-&gt;GetCursorPosition());</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; vectorGraphic : vectorGraphics)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;      document-&gt;EraseVectorGraphic(vectorGraphic);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
 <div class="ttc" id="classEraseVectorGraphicCommand_html"><div class="ttname"><a href="classEraseVectorGraphicCommand.html">EraseVectorGraphicCommand</a></div><div class="ttdef"><b>Definition:</b> EraseVectorGraphicCommand.h:5</div></div>
 <div class="ttc" id="classEraseVectorGraphicCommand_html_ada0a7b62d73fdbeeeff2e6f6276d99c8"><div class="ttname"><a href="classEraseVectorGraphicCommand.html#ada0a7b62d73fdbeeeff2e6f6276d99c8">EraseVectorGraphicCommand::EraseVectorGraphicCommand</a></div><div class="ttdeci">EraseVectorGraphicCommand(const std::shared_ptr&lt; Document &gt; &amp;document)</div><div class="ttdef"><b>Definition:</b> EraseVectorGraphicCommand.h:10</div></div>
 <div class="ttc" id="classGraphicCommand_html"><div class="ttname"><a href="classGraphicCommand.html">GraphicCommand</a></div><div class="ttdef"><b>Definition:</b> GraphicCommand.h:5</div></div>
+<div class="ttc" id="classGraphicCommand_html_a40d1e3a7166887c7d13ceb3b7df0fd2d"><div class="ttname"><a href="classGraphicCommand.html#a40d1e3a7166887c7d13ceb3b7df0fd2d">GraphicCommand::_document</a></div><div class="ttdeci">std::weak_ptr&lt; Document &gt; _document</div><div class="ttdef"><b>Definition:</b> GraphicCommand.h:19</div></div>
 <div class="ttc" id="Document_8h_html"><div class="ttname"><a href="Document_8h.html">Document.h</a></div></div>
-<div class="ttc" id="classGraphicCommand_html_a21152966d960adc17c1d2730bc290f92"><div class="ttname"><a href="classGraphicCommand.html#a21152966d960adc17c1d2730bc290f92">GraphicCommand::_document</a></div><div class="ttdeci">std::shared_ptr&lt; Document &gt; _document</div><div class="ttdef"><b>Definition:</b> GraphicCommand.h:19</div></div>
 <div class="ttc" id="classEraseVectorGraphicCommand_html_a60be2ced4fb09a587ad9e623885e3c6e"><div class="ttname"><a href="classEraseVectorGraphicCommand.html#a60be2ced4fb09a587ad9e623885e3c6e">EraseVectorGraphicCommand::Execute</a></div><div class="ttdeci">void Execute() override</div><div class="ttdef"><b>Definition:</b> EraseVectorGraphicCommand.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

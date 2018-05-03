@@ -1,9 +1,5 @@
 <map id="Application.h" name="Application.h">
-<area shape="rect" id="node2" href="$Application_8cpp.html" title="Application.cpp" alt="" coords="5,304,115,331"/>
-<area shape="rect" id="node3" href="$ApplicationState_8h.html" title="ApplicationState.h" alt="" coords="100,80,228,107"/>
-<area shape="rect" id="node8" href="$main_8cpp.html" title="main.cpp" alt="" coords="252,80,325,107"/>
-<area shape="rect" id="node4" href="$EmptyWorkspace_8h.html" title="EmptyWorkspace.h" alt="" coords="129,155,265,181"/>
-<area shape="rect" id="node5" href="$DocumentWorkspace_8h.html" title="DocumentWorkspace.h" alt="" coords="149,229,307,256"/>
-<area shape="rect" id="node7" href="$EmptyWorkspace_8cpp.html" title="EmptyWorkspace.cpp" alt="" coords="338,304,488,331"/>
-<area shape="rect" id="node6" href="$DocumentWorkspace_8cpp.html" title="DocumentWorkspace.cpp" alt="" coords="140,304,313,331"/>
+<area shape="rect" id="node2" href="$Application_8cpp.html" title="Application.cpp" alt="" coords="5,80,115,107"/>
+<area shape="rect" id="node3" href="$ApplicationState_8cpp.html" title="ApplicationState.cpp" alt="" coords="139,80,281,107"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="main.cpp" alt="" coords="305,80,379,107"/>
 </map>
