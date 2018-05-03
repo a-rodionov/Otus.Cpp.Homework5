@@ -22,7 +22,7 @@ public:
 
   virtual void Draw() const = 0;
 
-  virtual void Add(const std::shared_ptr<VectorGraphic>&) {}
+  virtual void Add(std::unique_ptr<VectorGraphic>) {}
 
   virtual VECTOR_GRAPHIC_ID GetId() const = 0;
 
@@ -38,8 +38,8 @@ public:
       vectorGraphic->Draw();
   }
 
-  void Add(const std::shared_ptr<VectorGraphic>& vectorGraphic) override {
-    vectorGraphics.push_back(vectorGraphic);
+  void Add(std::unique_ptr<VectorGraphic> vectorGraphic) override {
+    vectorGraphics.push_back(std::move(vectorGraphic));
   }
 
   VECTOR_GRAPHIC_ID GetId() const override {
@@ -48,7 +48,7 @@ public:
 
 private:
 
-  std::vector<std::shared_ptr<VectorGraphic>> vectorGraphics;
+  std::vector<std::unique_ptr<VectorGraphic>> vectorGraphics;
 };
 
 class VectorPoint final : public VectorGraphic
@@ -126,13 +126,13 @@ public:
   {
     Point point_3{point_1.x, point_2.y};
     Point point_4{point_2.x, point_1.y};
-    CompositeVectorGraphic::Add(std::make_shared<VectorLine>(point_1, point_3));
-    CompositeVectorGraphic::Add(std::make_shared<VectorLine>(point_1, point_4));
-    CompositeVectorGraphic::Add(std::make_shared<VectorLine>(point_2, point_3));
-    CompositeVectorGraphic::Add(std::make_shared<VectorLine>(point_2, point_4));
+    CompositeVectorGraphic::Add(std::make_unique<VectorLine>(point_1, point_3));
+    CompositeVectorGraphic::Add(std::make_unique<VectorLine>(point_1, point_4));
+    CompositeVectorGraphic::Add(std::make_unique<VectorLine>(point_2, point_3));
+    CompositeVectorGraphic::Add(std::make_unique<VectorLine>(point_2, point_4));
   }
 
-  void Add(const std::shared_ptr<VectorGraphic>& vectorGraphic) override
+  void Add(std::unique_ptr<VectorGraphic> vectorGraphic) override
   {}
 
   VECTOR_GRAPHIC_ID GetId() const override {

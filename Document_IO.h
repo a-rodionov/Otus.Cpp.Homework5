@@ -10,7 +10,7 @@ class Document_IO
 
 public:
 
-  virtual std::shared_ptr<Document> ReadDocument(const std::string& filename) const = 0;
+  virtual std::unique_ptr<Document> ReadDocument(const std::string& filename) const = 0;
 
   virtual void WriteDocument(const std::string& filename, const std::shared_ptr<Document>& document) const = 0;
 
@@ -21,9 +21,9 @@ class Document_IO_WMF final : public Document_IO
 
 public:
 
-  std::shared_ptr<Document> ReadDocument(const std::string& filename) const override {
+  std::unique_ptr<Document> ReadDocument(const std::string& filename) const override {
     //read data from WMF file, parse, add vector graphics to document
-    return std::make_shared<Document>();
+    return std::make_unique<Document>();
   }
 
   void WriteDocument(const std::string& filename, const std::shared_ptr<Document>& document) const override {
@@ -40,9 +40,9 @@ class Document_IO_CDR final : public Document_IO
 
 public:
 
-  std::shared_ptr<Document> ReadDocument(const std::string& filename) const override {
+  std::unique_ptr<Document> ReadDocument(const std::string& filename) const override {
     //read data from CDR file, parse, add vector graphics to document
-    return std::make_shared<Document>();
+    return std::make_unique<Document>();
   }
 
   void WriteDocument(const std::string& filename, const std::shared_ptr<Document>& document) const override {

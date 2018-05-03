@@ -14,8 +14,8 @@ protected:
 
   std::string GetFilename() const;
 
-  std::shared_ptr<Document_IO> GetDocumentIO(const std::string& filename) const;
+  std::unique_ptr<Document_IO> GetDocumentIO(const std::string& filename) const;
 
-  std::shared_ptr<Document> OpenFile(const std::string& filename);
+  std::unique_ptr<Document> OpenFile(const std::string& filename) const;
 
 };

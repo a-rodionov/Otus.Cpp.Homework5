@@ -1,6 +1,9 @@
 #pragma once
 
-#include "Application.h"
+#include <memory>
+#include "gui_message.h"
+
+class Application;
 
 class ApplicationState
 {
@@ -13,8 +16,6 @@ public:
 
 protected:
 
-  void ChangeState(Application& application, const std::shared_ptr<ApplicationState>& applicationState) {
-    application.ChangeState(applicationState);
-  }
+  void ChangeState(Application& application, std::unique_ptr<ApplicationState> applicationState);
 
 };

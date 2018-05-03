@@ -4,7 +4,7 @@
 
 Application::Application()
 {
-  _state = std::make_shared<EmptyWorkspace>();
+  _state = std::make_unique<EmptyWorkspace>();
 }
 
 void Application::DispatchGUIMessage(GUI_MESSAGE message)
@@ -12,6 +12,6 @@ void Application::DispatchGUIMessage(GUI_MESSAGE message)
   _state->DispatchGUIMessage(*this, message);
 }
 
-void Application::ChangeState(const std::shared_ptr<ApplicationState>& state) {
-  _state = state;
+void Application::ChangeState(std::unique_ptr<ApplicationState> state) {
+  _state.reset(state.release());
 }

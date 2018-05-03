@@ -10,15 +10,17 @@ void DocumentWorkspace::DispatchGUIMessage(Application& application, GUI_MESSAGE
   switch(message) {
     case GUI_MESSAGE::NEW_DOCUMENT: {
       _document = std::make_shared<Document>();
+      _drawingCommands.clear();
     } break;
     case GUI_MESSAGE::OPEN_FILE: {
       _document = OpenFile(GetFilename());
+      _drawingCommands.clear();
     } break;
     case GUI_MESSAGE::SAVE_FILE: {
       SaveFile(GetFilename());
     } break;
     case GUI_MESSAGE::CLOSE_DOCUMENT: {
-      ChangeState(application, std::make_shared<EmptyWorkspace>());
+      ChangeState(application, std::make_unique<EmptyWorkspace>());
     } break;
     case GUI_MESSAGE::PICK_POINT_INSTRUMENT:
     case GUI_MESSAGE::PICK_LINE_INSTRUMENT:

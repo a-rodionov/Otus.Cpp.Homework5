@@ -2,8 +2,7 @@
 
 #include <memory>
 #include "gui_message.h"
-
-class ApplicationState;
+#include "ApplicationState.h"
 
 class Application
 {
@@ -26,7 +25,7 @@ private:
 
   friend class ApplicationState;
   
-  void ChangeState(const std::shared_ptr<ApplicationState>& state);
+  void ChangeState(std::unique_ptr<ApplicationState> state);
 
-  std::shared_ptr<ApplicationState> _state;
+  std::unique_ptr<ApplicationState> _state;
 };

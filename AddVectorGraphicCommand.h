@@ -12,16 +12,17 @@ class AddVectorGraphicCommand : public GraphicCommand
 
 public:
 
-  explicit AddVectorGraphicCommand(const std::shared_ptr<Document>& document)
+  explicit AddVectorGraphicCommand(const std::weak_ptr<Document>& document)
     : GraphicCommand{document} {}
 
   void Execute() override {
-    _document->AddVectorGraphic(CreateVectorGraphic(_document->GetCursorPosition()));
+    std::shared_ptr<Document> document{_document};
+    document->AddVectorGraphic(CreateVectorGraphic(document->GetCursorPosition()));
   }
 
 protected:
 
-  virtual std::shared_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const = 0;
+  virtual std::unique_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const = 0;
 
 };
 
@@ -33,13 +34,13 @@ class AddVectorPointCommand final : public AddVectorGraphicCommand
 
 public:
 
-  explicit AddVectorPointCommand(const std::shared_ptr<Document>& document)
+  explicit AddVectorPointCommand(const std::weak_ptr<Document>& document)
     : AddVectorGraphicCommand{document} {}
 
 private:
 
-  std::shared_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const override {
-    return std::make_shared<VectorPoint>(cursorPosition);
+  std::unique_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const override {
+    return std::make_unique<VectorPoint>(cursorPosition);
   }
 
 };
@@ -52,13 +53,13 @@ class AddVectorTextCommand final : public AddVectorGraphicCommand
 
 public:
 
-  explicit AddVectorTextCommand(const std::shared_ptr<Document>& document)
+  explicit AddVectorTextCommand(const std::weak_ptr<Document>& document)
     : AddVectorGraphicCommand{document} {}
 
 private:
 
-  std::shared_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const override {
-    return std::make_shared<VectorText>(cursorPosition);
+  std::unique_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const override {
+    return std::make_unique<VectorText>(cursorPosition);
   }
 
 };
@@ -71,13 +72,13 @@ class AddVectorLineCommand final : public AddVectorGraphicCommand
 
 public:
 
-  explicit AddVectorLineCommand(const std::shared_ptr<Document>& document)
+  explicit AddVectorLineCommand(const std::weak_ptr<Document>& document)
     : AddVectorGraphicCommand{document} {}
 
 private:
 
-  std::shared_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const override {
-    return std::make_shared<VectorLine>(cursorPosition, Point{cursorPosition.x + DEFAULT_OFFSET, cursorPosition.y + DEFAULT_OFFSET});
+  std::unique_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const override {
+    return std::make_unique<VectorLine>(cursorPosition, Point{cursorPosition.x + DEFAULT_OFFSET, cursorPosition.y + DEFAULT_OFFSET});
   }
 
 };
@@ -90,13 +91,13 @@ class AddVectorRectangleCommand final : public AddVectorGraphicCommand
 
 public:
 
-  explicit AddVectorRectangleCommand(const std::shared_ptr<Document>& document)
+  explicit AddVectorRectangleCommand(const std::weak_ptr<Document>& document)
     : AddVectorGraphicCommand{document} {}
 
 private:
 
-  std::shared_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const override {
-    return std::make_shared<VectorRectangle>(cursorPosition, Point{cursorPosition.x + DEFAULT_OFFSET, cursorPosition.y + DEFAULT_OFFSET});
+  std::unique_ptr<VectorGraphic> CreateVectorGraphic(const Point& cursorPosition) const override {
+    return std::make_unique<VectorRectangle>(cursorPosition, Point{cursorPosition.x + DEFAULT_OFFSET, cursorPosition.y + DEFAULT_OFFSET});
   }
 
 };

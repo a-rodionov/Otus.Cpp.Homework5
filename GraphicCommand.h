@@ -7,7 +7,7 @@ class GraphicCommand
 
 public:
 
-  explicit GraphicCommand(const std::shared_ptr<Document>& document)
+  explicit GraphicCommand(const std::weak_ptr<Document>& document)
     : _document{document} {}
     
   virtual ~GraphicCommand(){};
@@ -16,6 +16,6 @@ public:
 
 protected:
 
-  std::shared_ptr<Document> _document;
+  std::weak_ptr<Document> _document;
 
 };

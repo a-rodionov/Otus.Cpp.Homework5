@@ -11,9 +11,10 @@ public:
     : GraphicCommand{document} {}
 
   void Execute() override {
-    auto vectorGraphics = _document->GetVectorGraphicByPosition(_document->GetCursorPosition());
+  	std::shared_ptr<Document> document{_document};
+    auto vectorGraphics = document->GetVectorGraphicByPosition(document->GetCursorPosition());
     for(const auto& vectorGraphic : vectorGraphics)
-      _document->EraseVectorGraphic(vectorGraphic);
+      document->EraseVectorGraphic(vectorGraphic);
   }
 
 };

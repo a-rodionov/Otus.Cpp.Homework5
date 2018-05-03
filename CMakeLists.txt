@@ -9,7 +9,7 @@ endif()
 project(homework5 VERSION 1.0.${PATCH_VERSION})
 
 # Создание целей
-add_executable(application main.cpp Application.cpp EmptyWorkspace.cpp DocumentWorkspace.cpp)
+add_executable(application main.cpp Application.cpp ApplicationState.cpp EmptyWorkspace.cpp DocumentWorkspace.cpp)
 
 # Настройка целей
 
